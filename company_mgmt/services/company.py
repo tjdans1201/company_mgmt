@@ -1,6 +1,6 @@
 import sys
 from typing import Union
-from fastapi import APIRouter, Depends, Request, Path, Header, Response
+from fastapi import APIRouter, Depends,Header
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 from crud import crud
@@ -78,9 +78,7 @@ def get_company_by_tag(
 
 
 @router.put(
-    "/companies/{company_name}/tags",
-    responses={**schemas.responses},
-)
+    "/companies/{company_name}/tags")
 def update_company(
     request: schemas.update_company,
     company_name: str,

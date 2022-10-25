@@ -11,9 +11,9 @@ CONFIG.read(configfile, encoding="utf-8_sig")
 
 
 class customException(Exception):
-    def __init__(self, status_code: int, message: str, url: str):
+    def __init__(self, status_code: int, message: str):
         self.status_code = status_code
-        self.message = message if url is None else message.format(url=url)
+        self.message = message
 
 def print_exception():
     """
