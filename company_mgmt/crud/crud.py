@@ -181,7 +181,7 @@ def delete_company_tag(db, company_name, tag_name, x_wanted_language):
         ).update(update_dict)
         db.commit()
         return {
-            "company_name": getattr(a, "company_" + x_wanted_language),
+            "company_name": getattr(searched_company, "company_" + x_wanted_language),
             "tags": natsorted(update_dict[getattr(company, "tag_" + x_wanted_language)].split("|")),
         }
     except Exception as e:
