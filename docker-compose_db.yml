@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  wanted_db:
+    container_name: wanted_db
+    build:
+      context: ./db
+    volumes:
+      - "db_data:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+
+volumes:
+  db_data:

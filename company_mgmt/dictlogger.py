@@ -24,7 +24,6 @@ class RemoveLevelFilter(object):
 sys.dont_write_bytecode = True
 
 curDir = os.path.dirname(os.path.normpath(__file__))
-parDir = os.path.normpath(os.path.join(curDir, os.pardir))
 
 log_ext = ".log"
 log_path = "/log/"
@@ -39,11 +38,11 @@ except:
     target = "local"
 
 if target == "local":
-    if not os.path.exists(parDir + log_path):  # pragma: no cover
-        os.makedirs(parDir + log_path)
+    if not os.path.exists(curDir + log_path):  
+        os.makedirs(curDir + log_path)
 
-    if not os.path.exists(parDir + test_log_path):  # pragma: no cover
-        os.makedirs(parDir + test_log_path)
+    if not os.path.exists(curDir + test_log_path):  
+        os.makedirs(curDir + test_log_path)
 
 formatter = logging.Formatter(
     "%(levelname)s %(asctime)s [%(thread)d] %(name)s.%(module)s [%(funcName)s:%(lineno)d] - %(message)s"
@@ -63,7 +62,7 @@ logger_dict = {}
 handler_list = defaultHandler
 if target == "local":
     handler = logging.handlers.TimedRotatingFileHandler(
-        parDir + log_path + "company_mgmt" + log_ext,
+        curDir + log_path + "company_mgmt" + log_ext,
         when="midnight",
         backupCount=backupCnt,
         encoding="UTF-8",
