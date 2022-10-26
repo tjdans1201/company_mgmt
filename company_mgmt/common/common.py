@@ -15,6 +15,7 @@ class customException(Exception):
         self.status_code = status_code
         self.message = message
 
+
 def print_exception():
     """
     에러 발생시 에러 발생 라인 출력
@@ -23,14 +24,18 @@ def print_exception():
     lineno = tb.tb_lineno
     return "(LINE {}) {}".format(lineno, exc_obj)
 
-TAG_KO = CONFIG.get("constant", "tag_ko")
-TAG_EN = CONFIG.get("constant", "tag_en")
-TAG_JP = CONFIG.get("constant", "tag_jp")
-TAG_TW = CONFIG.get("constant", "tag_tw")
-
 
 LOGGER_KEY = "company_mgmt"
 LOGGER = dictlogger.logger_dict[LOGGER_KEY]
 
-INTERNALSERVERERROR = int(CONFIG.get("error", "internalServerError"))
+# tag
+TAG_KO = CONFIG.get("constant", "tag_ko")
+TAG_EN = CONFIG.get("constant", "tag_en")
+TAG_JA = CONFIG.get("constant", "tag_ja")
+TAG_TW = CONFIG.get("constant", "tag_tw")
+
+
+# status_code
+INTERNALSERVERERROR = int(CONFIG.get("status", "internalServerError"))
 SUCCESS = int(CONFIG.get("status", "success"))
+NOT_FOUND = int(CONFIG.get("status", "not_found"))
