@@ -1,6 +1,6 @@
 import sys
 from typing import Union
-from fastapi import APIRouter, Depends,Header
+from fastapi import APIRouter, Depends, Header
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 from crud import crud
@@ -91,8 +91,7 @@ def get_company_by_tag(
         LOGGER.info("finish_get_company_by_tag")
 
 
-@router.put(
-    "/companies/{company_name}/tags")
+@router.put("/companies/{company_name}/tags")
 def update_company(
     request: schemas.update_company,
     company_name: str,

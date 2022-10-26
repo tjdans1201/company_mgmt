@@ -23,7 +23,7 @@ class update_company(BaseModel):
     )
 
 
-class update_company(BaseModel):
+class insert_company(BaseModel):
     company_name: dict
     tags: list
 
